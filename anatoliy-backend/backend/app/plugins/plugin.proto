@@ -1,0 +1,14 @@
+syntax = "proto3";
+package logviewer;
+
+service FilterPlugin {
+  rpc Process (ProcessRequest) returns (ProcessResponse) {}
+}
+
+message ProcessRequest {
+  string payload = 1; // NDJSON
+}
+
+message ProcessResponse {
+  string result = 1;  // JSON with aggregated stats
+}
